@@ -1,0 +1,3 @@
+{
+    "*.(js|jsx)": ["npm eslint:fix", "git add"]
+}
