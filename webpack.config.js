@@ -17,13 +17,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      AliasExample: path.join(__dirname, './src/components/'),
+      Components: path.join(__dirname, './src/components/'),
+      Constants: path.join(__dirname, './src/constants'),
     },
   },
-  plugins: [
-    new HTMLWebpackPlugin({ template: './src/index.html' }),
-    new CleanWebpackPlugin(),
-  ],
+  plugins: [new HTMLWebpackPlugin({ template: './src/index.html' }), new CleanWebpackPlugin()],
   module: {
     rules: [
       {

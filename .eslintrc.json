@@ -4,10 +4,10 @@
       "eslint:recommended",
       "plugin:react/recommended",
       "plugin:react-hooks/recommended",
-      "plugin:react/jsx-runtime"
+      "plugin:react/jsx-runtime",
+      "prettier"
     ],
     "plugins": [
-      "prettier",
       "react-hooks"
     ],
     "env": {
@@ -29,7 +29,7 @@
           "ignorePattern": "import"
         }
       ],
-      "no-unused-vars": "warn",
+      "no-unused-vars": "off",
       "operator-linebreak": "warn",
       "react/jsx-filename-extension": [
         2,
