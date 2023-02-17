@@ -1,6 +1,11 @@
 import React from 'react';
-import { DisplayInput, DisplayWrapper } from './styled';
+import { DisplayInput } from './styled';
+import PropTypes from 'prop-types';
 
-export const Display = () => {
-  return <DisplayInput>Display</DisplayInput>;
+export const Display = ({ value }) => {
+  return <DisplayInput>{value}</DisplayInput>;
+};
+
+Display.propTypes = {
+  value: PropTypes.string,
 };
