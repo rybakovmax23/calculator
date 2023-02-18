@@ -1,25 +1,15 @@
 import React from 'react';
 import { KEYS } from 'Constants/keyButtons';
 import { v4 as uuidV4 } from 'uuid';
-import PropTypes from 'prop-types';
-import { KeypadButton, KeypadWrapper } from './styled';
+import { KeypadWrapper } from './styled';
+import { Key } from 'Components/Key/Key';
 
-export const Keypad = ({ handleKeypad }) => {
-  const handleOnDigit = e => {
-    handleKeypad(e.target.innerText);
-  };
-
+export const Keypad = () => {
   return (
     <KeypadWrapper>
       {KEYS.map(item => (
-        <KeypadButton key={uuidV4()} onClick={handleOnDigit}>
-          {item}
-        </KeypadButton>
+        <Key keypadValue={item} key={uuidV4()} />
       ))}
     </KeypadWrapper>
   );
-};
-
-Keypad.propType = {
-  handleKeypad: PropTypes.func,
 };

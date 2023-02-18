@@ -38,12 +38,10 @@ const Commands = {
 
 function Calculator() {
   let current = 0;
-  let commands = [];
 
   return {
     execute: function (command) {
       current = +command.execute(command.current, command.value);
-      commands.push(command);
       return current;
     },
 
@@ -73,5 +71,6 @@ const operations = (value, operator, currentValue) => {
 export const calculatorCore = (value, operator, currentValue) => {
   const calculator = new Calculator();
   calculator.execute(operations(parseFloat(currentValue), operator, parseFloat(value)));
-  return calculator.getCurrentValue().toString();
+  const result = +calculator.getCurrentValue().toFixed(3);
+  return result.toString();
 };

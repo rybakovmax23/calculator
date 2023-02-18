@@ -9,18 +9,3 @@ export const KeypadWrapper = styled.div`
   height: 100%;
   padding: 15px 10px;
 `;
-
-export const KeypadButton = styled.button`
-  width: 90px;
-  height: 90px;
-  border-radius: 32px;
-  cursor: pointer;
-  margin: 10px 0;
-  border: 1px solid #707070;
-  font-size: 44px;
-  line-height: 57px;
-
-  &:hover {
-    background: #707070;
-  }
-`;

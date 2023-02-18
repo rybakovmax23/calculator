@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const HeaderWrapper = styled.header`
-  background: #434343;
-  border: 1px solid #707070;
+  background: ${props => props.theme.colors.backgroundHeader};
+  border: 1px solid ${props => props.theme.colors.borderHeader};
   padding: 21px 32px 28px;
   display: flex;
   align-items: center;

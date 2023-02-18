@@ -7,7 +7,8 @@
       // "*": ["./src/*"],
       "Constants/*":["./src/constants/*"],
       "Components/*":["./src/components/*"],
-      "Utils/*":["./src/utils/*"]
+      "Utils/*":["./src/utils/*"],
+      "Store/*":["./src/store"]
     },
   },
   "exclude": ["node_modules"]

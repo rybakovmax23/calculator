@@ -8,6 +8,7 @@ export const Header = () => {
       <HeaderTitle>Calculator App</HeaderTitle>
       <HeaderNav>
         <HeaderLink to={ROUTES.main}>Home</HeaderLink>
+        <HeaderLink to={ROUTES.calculatorCC}>CalculatorCC</HeaderLink>
         <HeaderLink to={ROUTES.settings}>Settings</HeaderLink>
       </HeaderNav>
     </HeaderWrapper>

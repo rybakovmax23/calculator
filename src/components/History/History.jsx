@@ -1,39 +1,24 @@
 import React from 'react';
 import { HistoryItem, HistoryList, HistoryWrapper } from './styled';
 import { v4 as uuidV4 } from 'uuid';
-
-const mockHistory = [
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-  '1+1',
-];
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 export const History = ({ isOpenedHistory }) => {
+  const { history } = useSelector(state => state.calculator);
   return (
     isOpenedHistory && (
       <HistoryWrapper>
         <HistoryList>
-          {mockHistory.map(el => (
+          {history.map(el => (
             <HistoryItem key={uuidV4()}>{el}</HistoryItem>
           ))}
         </HistoryList>
       </HistoryWrapper>
     )
   );
+};
+
+History.propTypes = {
+  isOpenedHistory: PropTypes.bool,
 };
