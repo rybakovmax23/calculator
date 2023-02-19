@@ -18,6 +18,10 @@ export const Key = ({ keypadValue }) => {
   const dispatch = useDispatch();
 
   const handleOnDigit = () => {
+    if (isNaN(firstValue)) {
+      dispatch(setResetValues());
+      return;
+    }
     switch (keypadValue) {
       case '%':
       case '+':
@@ -40,7 +44,6 @@ export const Key = ({ keypadValue }) => {
 
       case '=': {
         if (!operator) return;
-        console.log(firstValue, operator, secondValue);
         if (!secondValue) {
           dispatch(setResult(calculatorCore(firstValue, operator, firstValue)));
           dispatch(setFirstValue(calculatorCore(firstValue, operator, firstValue)));
@@ -93,17 +96,21 @@ export const Key = ({ keypadValue }) => {
         if (result) {
           dispatch(setResult(invertNumber(result)));
           dispatch(setFirstValue(invertNumber(result)));
+          return;
         }
         if (operator && !secondValue) {
           dispatch(setSecondValue(invertNumber('0')));
           return;
         }
-        if (firstValue) {
-          dispatch(setFirstValue(invertNumber(firstValue)));
-        }
         if (secondValue) {
           dispatch(setSecondValue(invertNumber(secondValue)));
+          return;
         }
+        if (firstValue) {
+          dispatch(setFirstValue(invertNumber(firstValue)));
+          return;
+        }
+
         break;
       }
 

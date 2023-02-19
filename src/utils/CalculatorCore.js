@@ -69,8 +69,15 @@ const operations = (value, operator, currentValue) => {
 };
 
 export const calculatorCore = (value, operator, currentValue) => {
-  const calculator = new Calculator();
-  calculator.execute(operations(parseFloat(currentValue), operator, parseFloat(value)));
-  const result = +calculator.getCurrentValue().toFixed(3);
-  return result.toString();
+  try {
+    const calculator = new Calculator();
+    if (operator === '/' && parseFloat(currentValue) == 0) {
+      throw Error("Сan't divide by zero");
+    }
+    calculator.execute(operations(parseFloat(currentValue), operator, parseFloat(value)));
+    const result = +calculator.getCurrentValue().toFixed(3);
+    return result.toString();
+  } catch (e) {
+    return e.message;
+  }
 };

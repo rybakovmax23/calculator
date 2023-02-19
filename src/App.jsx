@@ -1,3 +1,4 @@
+import { ErrorBoundary } from 'Components/ErrorBoundary/ErrorBoundary';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/Header/Header';
@@ -7,14 +8,16 @@ import { AppWrapper } from './styled';
 
 const App = () => {
   return (
-    <AppWrapper>
-      <Header />
-      <Routes>
-        <Route path={ROUTES.main} element={<MainPage />} />
-        <Route path={ROUTES.calculatorCC} element={<MainPageCC />} />
-        <Route path={ROUTES.settings} element={<SettingsPage />} />
-      </Routes>
-    </AppWrapper>
+    <ErrorBoundary>
+      <AppWrapper>
+        <Header />
+        <Routes>
+          <Route path={ROUTES.main} element={<MainPage />} />
+          <Route path={ROUTES.calculatorCC} element={<MainPageCC />} />
+          <Route path={ROUTES.settings} element={<SettingsPage />} />
+        </Routes>
+      </AppWrapper>
+    </ErrorBoundary>
   );
 };
 export default App;

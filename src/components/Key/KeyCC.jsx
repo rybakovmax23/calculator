@@ -29,6 +29,11 @@ export class KeyCC extends React.Component {
       setResetValues,
     } = this.props;
 
+    if (isNaN(firstValue)) {
+      setResetValues();
+      return;
+    }
+
     switch (keypadValue) {
       case '%':
       case '+':
@@ -51,7 +56,6 @@ export class KeyCC extends React.Component {
 
       case '=': {
         if (!operator) return;
-        console.log(firstValue, operator, secondValue);
         if (!secondValue) {
           setResult(calculatorCore(firstValue, operator, firstValue));
           setFirstValue(calculatorCore(firstValue, operator, firstValue));
@@ -104,16 +108,19 @@ export class KeyCC extends React.Component {
         if (result) {
           setResult(invertNumber(result));
           setFirstValue(invertNumber(result));
+          return;
         }
         if (operator && !secondValue) {
           setSecondValue(invertNumber('0'));
           return;
         }
-        if (firstValue) {
-          setFirstValue(invertNumber(firstValue));
-        }
         if (secondValue) {
           setSecondValue(invertNumber(secondValue));
+          return;
+        }
+        if (firstValue) {
+          setFirstValue(invertNumber(firstValue));
+          return;
         }
         break;
       }
