@@ -115,6 +115,13 @@ export const Key = ({ keypadValue }) => {
       }
 
       default: {
+        if (result && firstValue && operator && secondValue) {
+          dispatch(setFirstValue(keypadValue));
+          dispatch(setOperator(''));
+          dispatch(setSecondValue(''));
+          dispatch(setResult(''));
+          return;
+        }
         if (result) {
           dispatch(setFirstValue(secondValue));
           dispatch(setSecondValue(keypadValue));
@@ -147,7 +154,10 @@ export const Key = ({ keypadValue }) => {
   };
   return (
     <React.Fragment>
-      <KeypadButton active={keypadValue === operator} onClick={handleOnDigit}>
+      <KeypadButton
+        active={keypadValue === operator && !secondValue}
+        onClick={handleOnDigit}
+        data-cy={keypadValue}>
         {keypadValue}
       </KeypadButton>
     </React.Fragment>

@@ -126,6 +126,13 @@ export class KeyCC extends React.Component {
       }
 
       default: {
+        if (result && firstValue && operator && secondValue) {
+          setFirstValue(keypadValue);
+          setOperator('');
+          setSecondValue('');
+          setResult('');
+          return;
+        }
         if (result) {
           setFirstValue(secondValue);
           setSecondValue(keypadValue);

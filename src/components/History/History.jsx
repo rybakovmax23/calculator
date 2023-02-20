@@ -8,7 +8,7 @@ export const History = ({ isOpenedHistory }) => {
   const { history } = useSelector(state => state.calculator);
   return (
     isOpenedHistory && (
-      <HistoryWrapper>
+      <HistoryWrapper data-cy="history">
         <HistoryList>
           {history.map(el => (
             <HistoryItem key={uuidV4()}>{el}</HistoryItem>

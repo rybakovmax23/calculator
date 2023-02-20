@@ -26,14 +26,19 @@ export const ThemeButtons = () => {
         key={selectedTheme.theme}
         type={'button'}
         isOpened={isOpened}
-        onClick={handlerDropdown}>
+        onClick={handlerDropdown}
+        data-cy='themeHandler'>
         {selectedTheme.name}
         <span>{isOpened ? '▲' : '▼'}</span>
       </ThemeButton>
       {isOpened && (
         <OtherThemeButtonWrapper onClick={handlerChooseTheme}>
           {otherThemes.map(el => (
-            <OtherThemeButton key={el.theme} type={'button'} onClick={handlerDropdown}>
+            <OtherThemeButton
+              key={el.theme}
+              type={'button'}
+              onClick={handlerDropdown}
+              data-cy={el.theme}>
               {el.name}
             </OtherThemeButton>
           ))}

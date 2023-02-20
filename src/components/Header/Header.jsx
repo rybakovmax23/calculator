@@ -7,9 +7,15 @@ export const Header = () => {
     <HeaderWrapper>
       <HeaderTitle>Calculator App</HeaderTitle>
       <HeaderNav>
-        <HeaderLink to={ROUTES.main}>Home</HeaderLink>
-        <HeaderLink to={ROUTES.calculatorCC}>CalculatorCC</HeaderLink>
-        <HeaderLink to={ROUTES.settings}>Settings</HeaderLink>
+        <HeaderLink to={ROUTES.main} data-cy='home'>
+          Home
+        </HeaderLink>
+        <HeaderLink to={ROUTES.calculatorCC} data-cy='calculateCC'>
+          CalculatorCC
+        </HeaderLink>
+        <HeaderLink to={ROUTES.settings} data-cy='settings'>
+          Settings
+        </HeaderLink>
       </HeaderNav>
     </HeaderWrapper>
   );

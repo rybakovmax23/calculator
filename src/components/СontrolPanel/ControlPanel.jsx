@@ -4,7 +4,7 @@ import { ControlPanelWrapper } from './styled';
 
 export const ControlPanel = ({ isOpenedHistory, handlerOpeningHistory }) => {
   return (
-    <ControlPanelWrapper onClick={handlerOpeningHistory}>
+    <ControlPanelWrapper onClick={handlerOpeningHistory} data-cy='controlPanel'>
       History {isOpenedHistory ? '▲' : '▼'}
     </ControlPanelWrapper>
   );
